@@ -5,23 +5,32 @@ import java.util.List;
 
 public class Day1 {
 
-    public static boolean PART_B = true;
+    public static boolean PART_B = false;
+
+    public static List<String> wordDigits = List.of("zero",
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "nine"
+    );
 
     public static List<Integer> digits(String s) {
-        var digits = "0123456789";
-        var wordDigits = List.of("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
-
         var ret = new ArrayList<Integer>();
         for (int i = 0; i < s.length(); i++) {
             var c = s.charAt(i);
 
-            if (digits.contains(String.valueOf(c))) {
-                ret.add(digits.indexOf(c));
+            if (Character.isDigit(c)) {
+                ret.add(Character.digit(c, 10));
                 continue;
             }
 
             if (PART_B) {
-                for (String d: wordDigits) {
+                for (String d : wordDigits) {
                     if (s.startsWith(d, i)) {
                         ret.add(wordDigits.indexOf(d));
                         break;
@@ -35,8 +44,10 @@ public class Day1 {
 
     public static int calibrationValue(String s) {
         System.out.println(s);
+
         var digits = digits(s);
         System.out.println(digits);
+
         return digits.get(0) * 10 + digits.get(digits.size() - 1);
     }
 
