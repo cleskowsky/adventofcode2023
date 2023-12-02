@@ -38,7 +38,6 @@ public class Day2 {
             var split = colour.split(" ");
             ret.put(split[1], Integer.parseInt(split[0]));
         }
-        ;
         return ret;
     }
 
@@ -55,9 +54,9 @@ public class Day2 {
         return new Game(parseGameID(split[0]), parseRounds(split[1]));
     }
 
-    record Game(int id, List<Round> rounds) {}
+    public record Game(int id, List<Round> rounds) {}
 
-    static class Round extends HashMap<String, Integer> {
+    public static class Round extends HashMap<String, Integer> {
         public int blue() {
             return getColour("blue");
         }
