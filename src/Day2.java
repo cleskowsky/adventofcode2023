@@ -17,19 +17,18 @@ public class Day2 {
         System.out.println(part2(games));
     }
 
-    public static boolean gamesMatching(Game g) {
-        for (Round r : g.rounds) {
-            if (r.red() > 12 || r.green() > 13 || r.blue() > 14) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static int part1(List<Game> games) {
         var sum = 0;
+
         for (Game g : games) {
-            if (gamesMatching(g)) {
+            boolean possible = true;
+            for (Round r : g.rounds) {
+                if (r.red() > 12 || r.green() > 13 || r.blue() > 14) {
+                    possible = false;
+                }
+            }
+
+            if (possible) {
                 sum += g.id;
             }
         }
