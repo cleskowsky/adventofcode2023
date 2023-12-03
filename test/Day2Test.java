@@ -15,9 +15,6 @@ class Day2Test {
         var x = Day2.parseRound("3 blue, 4 red");
         assertEquals(3, x.blue());
         assertEquals(4, x.red());
-
-//        assertEquals(new Day2.Round(1, 6, 2), x.get(1));
-//        assertEquals(new Day2.Round(0, 0, 2), x.get(2));
     }
 
     @Test
